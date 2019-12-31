@@ -31,9 +31,9 @@ export default class ListingForm extends Component {
             // Modify this to take multiple exp fields
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
-                                    listingTitle: this.state.listingTitle,
-                                    listing: this.state.listing
-                                });
+                listingTitle: this.state.listingTitle,
+                listing: this.state.listing
+                });
         }
     };
 

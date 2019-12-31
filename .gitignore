@@ -7,6 +7,10 @@
 venv
 eb-virt
 
+## webpack
+bundles
+webpack-stats.json
+
 ### Django ###
 *.log
 *.pot

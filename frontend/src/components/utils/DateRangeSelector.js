@@ -10,8 +10,14 @@ import moment from "moment";
 
 export default class DateRangeSelector extends React.Component {
     state = {
-        startDate: this.props.experience ? moment(this.props.experience.start_date) : (this.props.education ? moment(this.props.education.start_date): moment()),
-        endDate: this.props.experience ? moment(this.props.experience.end_date) : (this.props.education ?  moment(this.props.education.end_date): moment()),
+        startDate: this.props.experience ?
+                   moment(this.props.experience.start_date) :
+                       (this.props.education ?
+                        moment(this.props.education.start_date): moment()),
+        endDate: this.props.experience ?
+                 moment(this.props.experience.end_date) :
+                     (this.props.education ?
+                          moment(this.props.education.end_date): moment()),
         focusedInput: null
     };
 

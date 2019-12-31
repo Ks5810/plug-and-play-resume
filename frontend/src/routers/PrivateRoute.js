@@ -9,7 +9,8 @@ const PrivateRoute = ({
     isLoading,
     component: Component,
     ...rest
-}) => (<>
+}) => (
+    <>
         <Header/> {
         isLoading ? <Loading/> : (
             <Route { ...rest } component={ (props) => (
@@ -21,7 +22,7 @@ const PrivateRoute = ({
                     <Redirect to="/login"/>
                 )
             ) }/>)
-    }
+        }
     </>
 );
 

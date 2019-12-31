@@ -1,5 +1,6 @@
 /**
- * ProfilePage.jsjs@author [Keisuke Suzuki](https://github.com/Ks5810)
+ * ProfilePage.js
+ * @author [Keisuke Suzuki](https://github.com/Ks5810)
  */
 
 import React, { Component } from "react";
@@ -17,9 +18,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 
 class ProfilePage extends Component {
-
-    render() {
-        return (
+    render = () => (
             <Container>
                 <Container>
                     <div className="page-section">
@@ -52,8 +51,7 @@ class ProfilePage extends Component {
                     </LinkContainer>
                 </Container>
             </Container>
-        )
-    }
+    );
 }
 
 export default connect()(ProfilePage);

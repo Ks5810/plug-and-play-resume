@@ -9,13 +9,13 @@ const PublicRoute = ({
     isAuthenticated,
     isLoading,
     component: Component,
-    ...rest,
+    ...rest
 }) => (
     <>
         <Header/> {
         isLoading ? <Loading/> : (
-        <Route { ...rest } component={ (props) => (
-            isAuthenticated ? (<Redirect to="/"/>) : (
+            <Route { ...rest } component={ (props) => (
+                isAuthenticated ? (<Redirect to="/"/>) : (
                     <div className="page">
                         <Container>
                             <div className="page-section">
@@ -24,8 +24,8 @@ const PublicRoute = ({
                             </div>
                         </Container>
                     </div>
-            )
-        ) }/>
+                )
+            )}/>
         )
     }
     </>
