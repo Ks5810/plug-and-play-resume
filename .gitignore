@@ -10,6 +10,8 @@ eb-virt
 ## webpack
 bundles
 webpack-stats.json
+webpack-stats-dev.json
+assets
 
 ### Django ###
 *.log
