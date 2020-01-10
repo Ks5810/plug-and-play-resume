@@ -10,12 +10,14 @@ eb-virt
 ## webpack
 bundles
 webpack-stats.json
+webpack-stats-dev.json
+assets
 
 ### Django ###
 *.log
 *.pot
 *.pyc
-__pycache__/*
+__pycache__
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

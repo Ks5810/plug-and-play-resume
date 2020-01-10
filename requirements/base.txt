@@ -23,6 +23,7 @@ docker-pycreds==0.4.0
 dockerpty==0.4.1
 docopt==0.6.2
 docutils==0.15.2
+en-core-web-sm==2.2.5
 future==0.16.0
 gunicorn==20.0.4
 idna==2.7
@@ -40,7 +41,6 @@ psycopg2==2.8.4
 pyasn1==0.4.8
 pycparser==2.19
 python-dateutil==2.8.0
-python-decouple==3.3
 python-dotenv==0.10.3
 pytz==2019.3
 PyYAML==3.13
@@ -64,4 +64,3 @@ wcwidth==0.1.7
 websocket-client==0.57.0
 wrapt==1.11.2
 zipp==0.6.0
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz

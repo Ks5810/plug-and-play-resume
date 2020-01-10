@@ -1,4 +1,4 @@
-"""plug-and-play-resume URL Configuration"""
+"""config URL Configuration"""
 
 from django.contrib import admin
 from django.conf.urls import include

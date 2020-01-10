@@ -5,9 +5,9 @@
   "author": "Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga ",
   "license": "MIT",
   "scripts": {
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server"
+    "start": "webpack-dev-server --config webpack/webpack.dev.config.js",
+    "build:dev": "webpack --config ./webpack/webpack.dev.config.js",
+    "build:prod": "webpack --config -p ./webpack/webpack.prod.config.js"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
@@ -21,10 +21,15 @@
     "babel-loader": "^8.0.6",
     "bootstrap": "^4.4.1",
     "bootstrap-scss": "^4.4.1",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.2.0",
     "dotenv": "^8.1.0",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^5.0.2",
     "history": "^4.10.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "node": "^12.11.1",
@@ -51,6 +56,7 @@
     "webpack-bundle-tracker": "^0.4.3",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "^4.3.1"
   }
 }
