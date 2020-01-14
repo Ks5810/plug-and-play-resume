@@ -167,4 +167,4 @@ ROOT_URLCONF = 'config.urls'
 
 # Static files setting
 STATIC_URL = 'http://localhost:3000/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')

@@ -28,14 +28,7 @@ module.exports = {
         }, {
             test: /\.(ttf|eot|svg|gif)(\?[\s\S]+)?$/,
             use: 'file-loader'
-        }, {
-            test: /\.html$/,
-            use: [
-                'file-loader?name=[name].[ext]',
-                'extract-loader',
-                'html-loader'
-            ],
-        }
+        },
         ]
     },
     plugins: [

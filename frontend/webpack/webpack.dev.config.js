@@ -12,6 +12,18 @@ const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = merge(common, {
     mode: 'development',
+    module: {
+        rules: [
+            {
+                test: /\.html$/,
+                use: [
+                    'file-loader?name=[name].[ext]',
+                    'extract-loader',
+                    'html-loader'
+                ],
+            }
+        ]
+    },
     entry: [
         './src/app.js',
         './static/index.html'
