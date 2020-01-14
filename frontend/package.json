@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.dev.config.js",
     "build:dev": "webpack --config ./webpack/webpack.dev.config.js",
-    "build:prod": "webpack --config -p ./webpack/webpack.prod.config.js"
+    "build:prod": "webpack --config ./webpack/webpack.prod.config.js"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
