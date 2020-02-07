@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios';
-import "regenerator-runtime/runtime";
+
 import {
     ADD_EDUCATION, DELETE_EDUCATION, EDIT_EDUCATION, FETCH_EDUCATIONS
 } from "./types";
