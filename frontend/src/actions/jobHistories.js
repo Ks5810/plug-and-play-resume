@@ -1,5 +1,4 @@
 import axios from 'axios'
-import "regenerator-runtime/runtime";
 import {
     ADD_JOB_HISTORY, EDIT_JOB_HISTORY, REMOVE_JOB_HISTORY, FETCH_JOB_HISTORY
 } from "./types";

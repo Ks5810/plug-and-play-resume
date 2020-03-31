@@ -1,5 +1,5 @@
 import axios from 'axios';
-import "regenerator-runtime/runtime";
+
 import { UPDATE_BASIC_INFO, FETCH_BASIC_INFO } from "./types";
 import { returnErrors } from "./messages";
 import { requestConfig } from "../lib";

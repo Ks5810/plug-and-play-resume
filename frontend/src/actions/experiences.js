@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios'
-import "regenerator-runtime/runtime";
+
 import {
     ADD_EXPERIENCE, EDIT_EXPERIENCE, FETCH_EXPERIENCES, REMOVE_EXPERIENCE
 } from "./types";

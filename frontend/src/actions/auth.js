@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios'
-import "regenerator-runtime/runtime";
+
 import {
     AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_FAIL,
     REGISTER_SUCCESS, USER_LOADED, USER_LOADING
