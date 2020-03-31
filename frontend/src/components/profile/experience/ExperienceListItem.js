@@ -6,6 +6,7 @@
 import React from 'react';
 import { Button, ButtonGroup, ListGroupItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap"
+import { BtnGroup } from "../../utils/BtnGroup";
 
 
 const ExperienceListItem = ({
@@ -15,16 +16,11 @@ const ExperienceListItem = ({
         <h6>{ title }</h6>
         { `Description: ${ description }` } <br/>
         { `Keywords: ${ experience_keywords }` } <br/>
-        <ButtonGroup size="sm" className="btn-full">
-            <LinkContainer to={ `/experience/${ id }` }>
-                <Button variant="secondary">Edit</Button>
-            </LinkContainer>
-            <Button
-                variant="danger"
-                value={ id }
-                onClick={ e => onClick(e.target.value) }>Remove
-            </Button>
-        </ButtonGroup>
+        <BtnGroup
+            to={ `/experience/${id}` }
+            onClick={ (e) => onClick(e.target.value) }
+            value={ id }
+        />
     </ListGroupItem>
 );
 

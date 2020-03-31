@@ -3,7 +3,6 @@
  * @author [Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga ](https://github.com/aishak7, https://github.com/Ks5810, https://github.com/tommi-tsuruga)
  */
 import React, { Component } from 'react';
-import 'react-dates/lib/css/_datepicker.css';
 import { Button, Form } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 

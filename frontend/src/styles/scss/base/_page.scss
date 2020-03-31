@@ -1,20 +1,12 @@
 // Styling for page sections
 
 .page {
-  padding-top: 105px;
-
-  .page-section {
-    .page-section-heading {
-      font-size: 2.25rem;
-      line-height: 2rem;
-    }
-
-    @include media-breakpoint-up(lg) {
-      padding-top: 110px;
-      .page-section-heading {
-        font-size: 3rem;
-        line-height: 2.5rem;
-      }
-    }
+  padding: $m-size 0;
+  @include media-breakpoint-down(sm) {
+    padding: $s-size 0;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: $l-size 0 20rem 0;
   }
 }
+

@@ -1,21 +1,31 @@
 {% load render_bundle from webpack_loader %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Plug And Play Resume</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../static/images/favicon.png"/>
-    <!-- ios meta tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Plug And Play Resume">
+    <html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="ie=edge" http-equiv="x-ua-compatible">
+        <meta charset="UTF-8">
+        <meta name="name" content="plug-and-play-resume">
+        <meta name="Description" content="Generate your resume for each job posting">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Plug-And-Play-Resume">
+        <title>Plug And Play Resume</title>
+        <link href="/static/images/favicon.png" rel="shortcut icon" />
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" />
+        <link rel="manifest"
+              href="/static/manifest.json" />
+        <title>Plug And Play Resume</title>
 </head>
 <body>
-<div id="app"></div>
-<div>
-    {% render_bundle 'main' %}
+<div id="app">
+{% render_bundle 'app' 'js' %}
+{% render_bundle 'vendors' 'js' %}
 </div>
 </body>
 </html>

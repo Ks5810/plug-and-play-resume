@@ -1,62 +1,80 @@
 /**
  * Header.js
- * @author [Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga ](https://github.com/aishak7, https://github.com/Ks5810, https://github.com/tommi-tsuruga)
+ * @author [Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga
+ *     ](https://github.com/aishak7, https://github.com/Ks5810,
+ *     https://github.com/tommi-tsuruga)
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth'
 import { Button, Container, Nav, Navbar, NavItem, } from "react-bootstrap";
 import { capitalize, removeSlash } from "../lib";
 
+
 const privateRoutes = [ "/profile", "/listing", "/resume" ];
 const publicRoutes = [ "/register", "/login" ];
 
-export const Header = ({ startLogout, isAuthenticated }) => {
+export const Header = ({ startLogout, isAuthenticated }) =>
+{
+    const [ expanded, setExpanded ] = useState(false);
+    const onClick = () =>
+    {
+        setExpanded(false);
+        scroll.scrollToTop();
+    };
     const routes = isAuthenticated ? privateRoutes : publicRoutes;
-    return(
-        <Navbar expand="lg" bg="secondary" text="uppercase" fixed="top">
+    return (
+        <Navbar expanded={ expanded } expand="lg" fixed="top">
             <Container>
-                <Link to="/"
-                      className="navbar navbar-brand">
-                    PlugAndPlayResume
-                </Link>
+                <Nav.Link
+                    className="navbar-brand"
+                    onClick={ onClick }
+                >
+                    Plug And Play Resume
+                </Nav.Link>
                 <Navbar.Toggle
-                    aria-controls="navbar-nav"
-                    className="bg-primary rounded">
-                    MENU <i className="fas fa-bars"> </i>
+                    onClick={ () => setExpanded(
+                        expanded ? false : "expanded") }
+                    className="navbar-toggler rounded"
+                >
+                    <i className="fas fa-bars"/>
                 </Navbar.Toggle>
-                <Navbar.Collapse id="navbar-nav">
+                <Navbar.Collapse
+                    onClick={ () => setExpanded(false) }
+                >
                     <Nav className="ml-auto">
                         { routes.map((route, index) => (
                             <NavItem
-                               key={ index }
-                               className="mx-0 mx-lg-1">
-                               <Link
-                                  to={ route }
-                                  className="navbar nav-item py-3 px-0
-                                             nav-link px-lg-3 rounded">
-                                  { capitalize(removeSlash(route)) }
-                               </Link>
-                               </NavItem>
-                            )) }
-                        { isAuthenticated &&
-                            <NavItem
-                                onClick={ startLogout }
-                                className="mx-0 mx-lg-1">
-                                <Button
-                                    onClick={ startLogout }
-                                        className="navbar navbar-button rounded">
-                                Logout
-                                </Button>
+                                key={ index }
+                                className="mx-0 mx-lg-1 py-3 px-0 px-lg-3 rounded">
+                                <Link
+                                    to={ route }
+                                    className="nav-link"
+                                    onClick={ () => setExpanded(false) }>
+                                    { capitalize(removeSlash(route)) }
+                                </Link>
                             </NavItem>
+                        )) }
+                        { isAuthenticated &&
+                          <NavItem
+                              className="mx-0 mx-lg-1 py-3 px-0 px-lg-3 rounded"
+                          >
+                              <Button
+                                  onClick={() => startLogout() }
+                                  className="btn-logout nav-link">
+                                  Logout
+                              </Button>
+                          </NavItem>
                         }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-)};
+    )
+};
 
 const mapDispatchToProps = (dispatch) => ({
     startLogout: () => dispatch(startLogout())

@@ -16,11 +16,9 @@ class ResumePage extends Component {
   }
 
   render = () => (
-    <Container>
-      <div className='page-section'>
+    <Container className='section'>
         <h2> Generated Resume </h2>
         <GeneratedList />
-      </div>
     </Container>
   );
 }

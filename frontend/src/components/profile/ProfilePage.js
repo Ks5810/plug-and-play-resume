@@ -14,13 +14,12 @@ import { fetchBasicInfo } from "../../actions/basicInfo";
 import { fetchJobHistory } from "../../actions/jobHistories";
 import AddJobHistory from "./job-history/AddJobHistory";
 import { Button, Container } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 
 class ProfilePage extends Component {
     render = () => (
-            <Container>
-                <Container>
+            <Container className='section'>
                     <div className="page-section">
                         <BasicInfo onSubmit={ () => {
                             this.props.history.push('/profile')
@@ -43,13 +42,9 @@ class ProfilePage extends Component {
                                 this.props.history.push('/profile')
                             } }/>
                     </div>
-                    <LinkContainer to={ `/listing` }>
-                        <Button
-                            size="xl"
-                            className="btn-full"
-                            variant="info">Next: Job Listing</Button>
-                    </LinkContainer>
-                </Container>
+                    <Link to={ `/listing` }>
+                        <Button className="btn-full">Next: Job Listing</Button>
+                    </Link>
             </Container>
     );
 }

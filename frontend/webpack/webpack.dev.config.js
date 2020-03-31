@@ -12,38 +12,36 @@ const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = merge(common, {
     mode: 'development',
+    entry: {
+        app: './src/app.js'
+    },
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    },
+    output: {
+        publicPath: "/static/bundles/",
+        filename: '[name].bundle.js',
+        path: path.join(__dirname, '../static/bundles')
+    },
     module: {
         rules: [
             {
-                test: /\.html$/,
+             test: /\.s?css$/,
                 use: [
-                    'file-loader?name=[name].[ext]',
-                    'extract-loader',
-                    'html-loader'
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
                 ],
             }
         ]
     },
-    entry: [
-        './src/app.js',
-        './static/index.html'
-    ],
     devtool: 'cheap-module-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, '../static'),
-        historyApiFallback: true,
-        publicPath: 'http://localhost:3000/bundles/',
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        liveReload: false,
-        hot: true,
-        inline: true,
-        port: 3000
-    },
     optimization: {
         noEmitOnErrors: true
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin({ multiStep: true }),
+        new webpack.HotModuleReplacementPlugin(),
         new BundleTracker({
             path: path.join(__dirname, '../'),
             filename: 'webpack-stats-dev.json'

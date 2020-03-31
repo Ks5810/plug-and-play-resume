@@ -10,7 +10,7 @@ import Loading from "../utils/Loading";
 import { Container } from "react-bootstrap";
 
 export const LoginPage = ({ dispatch }) => (
-        <>
+        <div className='section'>
             <AccountFrom
                 btnText="Login"
                 link="/register"
@@ -18,7 +18,7 @@ export const LoginPage = ({ dispatch }) => (
                     dispatch(login(username, password))
                 } }
             />
-        </>
+        </div>
 );
 
 export default connect()(LoginPage);

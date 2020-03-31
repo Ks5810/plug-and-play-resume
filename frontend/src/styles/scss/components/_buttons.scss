@@ -1,44 +1,74 @@
-// Custom extra larg button size
+// Buttons
+
+.btn {
+  background-color: $primary;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  &:active,
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  &:hover {
+    background-color: darken($primary, 5%);
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  @include media-breakpoint-up(md) {
+    height: 3rem;
+  }
+}
+
+.btn-logout {
+  @extend .btn;
+  color: $white;
+  background-color: $danger;
+  &:hover{
+    background-color: darken($danger, 10%);
+  }
+}
+
 .btn-xl {
   padding: 1rem 1.75rem;
   font-size: 1.25rem;
 }
 
-.btn-full {
+.btn-group {
+  padding: 1rem;
   width: 100%;
+  .btn {
+    color: $white;
+    &__danger {
+      &:hover {
+        background-color: darken($danger, 10%);
+      }
+      background-color: $danger;
+    }
+    &__info {
+      &:hover {
+         background-color: darken($info, 10%);
+      }
+       background-color: $info;
+    }
+  }
+
+}
+
+.btn-full {
+  @extend .btn;
+  width: 100%;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 .list-group-item {
   .btn-full {
+    @extend .btn;
     width: 100%;
     margin-top: 0.5rem;
     margin-bottom: 0;
-  }
-}
-
-// Custom social buttons
-.btn-social {
-  border-radius: 100%;
-  display: inline-flex;
-  width: 3.25rem;
-  height: 3.25rem;
-  font-size: 1.25rem;
-  justify-content: center;
-  align-items: center;
-}
-
-// Scroll to top button
-.scroll-to-top {
-  z-index: 1042;
-  right: 1rem;
-  bottom: 1rem;
-  display: none;
-
-  .button {
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: fade-out($gray-900, 0.5);
-    line-height: 3.1rem;
   }
 }

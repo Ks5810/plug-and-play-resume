@@ -5,7 +5,6 @@
 
 import React from 'react';
 import moment from 'moment';
-import 'react-dates/lib/css/_datepicker.css';
 import DateRangeSelector from "../../utils/DateRangeSelector";
 import { DATE_FORMAT } from "../../../actions/types";
 import { Button, Form, Alert } from "react-bootstrap";
