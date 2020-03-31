@@ -1,6 +1,8 @@
 /**
  * PlugResumePage.js
- * @author [Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga ](https://github.com/aishak7, https://github.com/Ks5810, https://github.com/tommi-tsuruga)
+ * @author [Aisha Khoja, Keisuke Suzuki, Tommi Ann Tsuruga
+ *     ](https://github.com/aishak7, https://github.com/Ks5810,
+ *     https://github.com/tommi-tsuruga)
  */
 
 import React, { Component } from "react";
@@ -12,34 +14,32 @@ import { fetchExperiences } from "../actions/experiences";
 import { fetchEducations } from "../actions/educations";
 import { fetchJobHistory } from "../actions/jobHistories";
 
-class PlugResumePage extends Component{
-    constructor(props) {
+
+class PlugResumePage extends Component
+{
+    constructor(props)
+    {
         super(props);
     }
-    componentDidMount() {
+    
+    componentDidMount()
+    {
         const { dispatch } = this.props;
         dispatch(fetchBasicInfo());
         dispatch(fetchExperiences());
         dispatch(fetchEducations());
         dispatch(fetchJobHistory());
     };
-
+    
     render = () => (
-        <div className="page-section">
-            <Container>
-                <Container className="py-10 px-10">
-                    <h3 align="center">Hi, { this.props.user.username }! </h3>
-                    <Link to="/profile">
-                            <Button
-                                size="lg"
-                                variant="info"
-                                className="my-5 btn-full">
-                                Generate your resume now
-                            </Button>
-                    </Link>
-                </Container>
-            </Container>
-        </div>
+        <Container className="section">
+            <h3 align="center">Hi, { this.props.user.username }! </h3>
+            <Link to="/profile">
+                <Button className="btn-full">
+                    Generate your resume now
+                </Button>
+            </Link>
+        </Container>
     )
 };
 

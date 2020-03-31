@@ -1,0 +1,7 @@
+{
+    "name": "Plug And Play Resume",
+    "short_name": "Resume",
+    "display" : "standalone",
+    "scope": "/",
+    "start_url": "/"
+}

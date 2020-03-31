@@ -18,7 +18,7 @@ const PublicRoute = ({
                 isAuthenticated ? (<Redirect to="/"/>) : (
                     <div className="page">
                         <Container>
-                            <div className="page-section">
+                            <div className="page">
                                 <h3>Sign up or login to get started!</h3>
                                 <Component { ...props } />
                             </div>

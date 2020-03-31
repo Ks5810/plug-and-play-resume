@@ -70,7 +70,9 @@ export default class AccountFrom extends React.Component {
                     value={ password }
                     onChange={ this.onPasswordChange }
                 />
-                <Button type="submit">{ this.props.btnText }</Button>
+                <Button className='btn-full' type="submit">
+                    { this.props.btnText }
+                </Button>
             </Form>
         );
     }

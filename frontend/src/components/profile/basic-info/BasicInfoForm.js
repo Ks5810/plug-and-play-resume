@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux'
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, FormControl, FormGroup } from "react-bootstrap";
 import { validEmail } from "../../../lib";
 
 class BasicInfoForm extends React.Component {
@@ -39,19 +39,15 @@ class BasicInfoForm extends React.Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-        const { first_name, last_name, email } = this.state;
-        if (!(first_name && last_name && email)) {
-            this.setState(() => ({ error: 'Please provide all fields' }));
-        } else if(!validEmail(email)) {
-            this.setState(
-                () => ({ emailError: 'Enter a valid email address' }));
-        } else {
-            this.setState(() => (
-                { saved: 'Your profile is saved!',
-                  error: '',
-                  emailError: '' }
+        const form = e.currentTarget;
+        if(form.checkValidity())
+        {
+            this.setState(() => ({
+                    saved: 'Your profile is saved!',
+                    error: '',
+                    emailError: '' }
                 ));
-            this.props.onSubmit({ first_name, last_name, email });
+            this.props.onSubmit({...form});
         }
     };
 
@@ -65,34 +61,56 @@ class BasicInfoForm extends React.Component {
                 { this.state.emailError && <Alert variant="danger">
                     {this.state.emailError}
                 </Alert> }
-                <Form.Control
+                <FormGroup
+                    controlId={ `firstNameValidation` }
+                    className="contact-form-group"
+                >
+                    <FormControl
+                        required
+                        type="text"
+                        placeholder="First Name"
+                        value={ this.state.first_name }
+                        onChange={ this.onFirstNameChange }
+                    />
+                    <FormControl.Feedback type='invalid'>
+                        Your First Name is Empty
+                    </FormControl.Feedback>
+                </FormGroup>
+                <FormGroup
+                    controlId={ `LastNameValidation` }
+                    className="contact-form-group"
+                >
+                <FormControl
+                    required
                     type="text"
-                    size="md"
-                    placeholder="First Name"
-                    value={ this.state.first_name }
-                    onChange={ this.onFirstNameChange }
-                />
-                <Form.Control
-                    type="text"
-                    size="md"
                     placeholder="Last Name"
                     value={ this.state.last_name }
                     onChange={ this.onLastNameChange }
                 />
-                <Form.Control
+                    <FormControl.Feedback type='invalid'>
+                        Your Last Name is Empty
+                    </FormControl.Feedback>
+                </FormGroup>
+                <FormGroup controlId={ `emailValidation`}>
+                <FormControl
+                    required
                     type="email"
-                    size="md"
                     placeholder="email"
                     value={ this.state.email }
                     onChange={ this.onEmailChange }
                 />
+                    <FormControl.Feedback type='invalid'>
+                        Please enter a valid email address
+                    </FormControl.Feedback>
+                </FormGroup>
+                { this.state.saved &&
+                  <Alert variant="success">{ this.state.saved }</Alert>
+                }
                 <Button
                     className="btn-full"
-                    type="submit">Save your profile
+                    type="submit">
+                    Save your profile
                 </Button>
-                { this.state.saved &&
-                    <Alert variant="success">{ this.state.saved }</Alert>
-                }
             </Form>
         )
     }

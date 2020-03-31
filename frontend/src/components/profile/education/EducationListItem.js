@@ -5,7 +5,9 @@
 
 import React from 'react';
 import { Button, ButtonGroup, ListGroupItem } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap"
+import { Link } from "react-router-dom"
+import { BtnGroup } from "../../utils/BtnGroup";
+
 
 const EducationListItem = ({
     id, school_name, start_date, end_date,
@@ -14,17 +16,11 @@ const EducationListItem = ({
     <ListGroupItem>
         <b>{ school_name }</b> { `(${ start_date } - ${ end_date })` } <br/>
         { `${ degree } in ${ major }` } <br/>
-        <ButtonGroup size="sm" className="btn-full">
-            <LinkContainer to={ `/education/${ id }` }>
-                <Button variant="secondary">
-                    Edit</Button>
-            </LinkContainer>
-            <Button
-                variant="danger"
-                value={ id }
-                onClick={ (e) => onClick(e.target.value) }>Remove
-            </Button>
-        </ButtonGroup>
+        <BtnGroup
+            to={ `/education/${id}` }
+            onClick={ (e) => onClick(e.target.value) }
+            value={ id }
+        />
     </ListGroupItem>
 );
 

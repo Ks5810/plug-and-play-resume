@@ -9,8 +9,9 @@ import { Provider } from 'react-redux';
 import { loadUser } from './actions/auth';
 import AppRouter from "./routers/AppRouter";
 import 'react-dates/initialize';
-import 'normalize.css/normalize.css';
 import "./styles/scss/styles.scss";
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+OfflinePluginRuntime.install();
 
 console.log('app.js is running');
 

@@ -7,15 +7,13 @@ const ListingItems = ({ id, listingTitle, listing, listingKeywords, submitResume
             <h6>{ `${ index + 1 }. ${ listingTitle }` } </h6>
             { `Keywords: ${ listingKeywords }` } <br/>
             { `${ listing } ` } <br/>
-            <ButtonGroup size="sm" className="btn-full">
-            <Button
-                variant="danger"
+            <ButtonGroup className='btn-group'>
+            <Button className='btn__danger'
                 value={ id }
                 onClick={ (e) => removeResume(e.target.value) }
             >Remove
             </Button>
-            <Button
-                variant="info"
+            <Button className='btn__info'
                 value={ id }
                 onClick={ (e) => submitResume(e.target.value) }
             >Generate
