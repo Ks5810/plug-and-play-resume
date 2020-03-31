@@ -42,9 +42,6 @@ ALLOWED_HOSTS = config(
 # Allow CORS
 CORS_ALLOW_CREDENTIALS = True
 
-# CSRF
-CSRF_TRUSTED_ORIGINS = ['localhost:3000']
-
 # Wsgi configuration file path
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -78,13 +75,23 @@ REST_FRAMEWORK = {
 # Django webpack loader setting
 WEBPACK_LOADER = {
     'DEFAULT': {
+        'CACHE': False,
         'BUNDLE_DIR_NAME': 'bundles/',
-        'STATS_FILE': os.path.join(APPS_DIR, 'webpack-stats-dev.json')
+        'STATS_FILE': os.path.join(APPS_DIR, 'webpack-stats-dev.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+        'LOADER_CLASS': 'webpack_loader.loader.WebpackLoader',
     }
 } if DEBUG else {
     'DEFAULT': {
+        'CACHE': True,
         'BUNDLE_DIR_NAME': 'bundles/',
-        'STATS_FILE': os.path.join(APPS_DIR, 'webpack-stats-prod.json')
+        'STATS_FILE': os.path.join(APPS_DIR, 'webpack-stats-dev.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+        'LOADER_CLASS': 'webpack_loader.loader.WebpackLoader',
     }
 }
 
@@ -166,5 +173,5 @@ USE_TZ = True
 ROOT_URLCONF = 'config.urls'
 
 # Static files setting
-STATIC_URL = 'http://localhost:3000/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(APPS_DIR, 'static')
